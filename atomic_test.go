@@ -52,3 +52,28 @@ func TestAtomicInt(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestAtomicBool(t *testing.T) {
+	b := &AtomicBool{}
+	b.Set(true)
+
+	var wg sync.WaitGroup
+	wg.Add(10)
+	for i := 0; i < 10; i++ {
+		go func() {
+			b.Flip()
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+
+	if !b.Value() {
+		t.Fail()
+	}
+
+	b.Flip()
+
+	if b.Value() {
+		t.Fail()
+	}
+}

@@ -1,6 +1,6 @@
 # Go Atomic
 
-Atomic is a Go library that implements atomic types (eg AtomicCounter, AtomicInt).
+Atomic is a Go library that implements atomic types (eg AtomicCounter, AtomicInt, AtomicBool).
 
 ## Getting Started
 
