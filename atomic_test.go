@@ -6,7 +6,8 @@ import (
 )
 
 func TestAtomicCounter(t *testing.T) {
-	c := &AtomicCounter{}
+	c := NewCounter()
+	c.Reset()
 
 	var wg sync.WaitGroup
 	wg.Add(100)
@@ -26,7 +27,8 @@ func TestAtomicCounter(t *testing.T) {
 }
 
 func TestAtomicInt(t *testing.T) {
-	ai := &AtomicInt{}
+	ai := NewInt(0)
+	ai.Reset()
 
 	var wg sync.WaitGroup
 	wg.Add(100)
@@ -54,7 +56,8 @@ func TestAtomicInt(t *testing.T) {
 }
 
 func TestAtomicBool(t *testing.T) {
-	b := &AtomicBool{}
+	b := NewBool(false)
+	b.Reset()
 	b.Set(true)
 
 	var wg sync.WaitGroup

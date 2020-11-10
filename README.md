@@ -1,6 +1,6 @@
 # Go Atomic
 
-Atomic is a Go library that implements atomic types (eg AtomicCounter, AtomicInt, AtomicBool).
+Atomic is a Go library that implements atomic types (eg Counter, Int, Bool).
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ import (
 )
 
 func main() {
-	c := &atomic.AtomicCounter{}
+	c := &atomic.Counter()
 
 	var wg sync.WaitGroup
 	wg.Add(100)
@@ -30,6 +30,10 @@ func main() {
 	wg.Wait()
 
 	c.Incr()
+
+	fmt.Println(c.Count())
+
+	c.Reset()
 }
 
 ```
